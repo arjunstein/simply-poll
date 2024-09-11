@@ -11,7 +11,11 @@
         <div>
             @foreach ($options as $i => $opt)
                 <div class="mb-4">
-                    {{ $i + 1 }} - {{ $opt }}
+                    <label for="">Option {{ $i + 1 }}</label>
+                    <div class="flex gap-2">
+                        <input type="text" wire:model="options.{{ $i }}" />
+                        <button class="btn" wire:click.prevent="removeOption({{ $i }})">Remove</button>
+                    </div>
                 </div>
             @endforeach
         </div>
